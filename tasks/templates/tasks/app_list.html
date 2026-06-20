@@ -15,27 +15,16 @@
             </h1>
         </div>
     </header>
-
     <main>
         <div class="main-content">
             <div class="tasks">
+                {% for task in tasks%}
                 <div class="task">
-                    <time class="task-time">published: 14.06.2014, 12:14</time>
-                    <h2 class="task-title"><a href="">My first post</a></h2>
-                    <p class="task-text">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-                        Donec id elit non
-                        mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                        condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                    <time class="task-time">published: {{task.created_at}}</time>
+                    <h2 class="task-title"><a href="/">{{task.title}}</a></h2>
+                    <p class="task-text">{{task.description|linebreaksbr}}</p>
                 </div>
-
-                <div class="task">
-                    <time class="task-time">published: 14.06.2014, 12:14</time>
-                    <h2 class="task-title"><a href="">My second post</a></h2>
-                    <p class="task-text">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-                        Donec id elit non
-                        mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                        condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                </div>
+                {% endfor %}
             </div>
         </div>
 
