@@ -1,0 +1,131 @@
+body{
+    color: #19191C;
+    font-family: "Roboto Slab", serif;
+    font-size: 20px;
+}
+
+.container{
+    max-width: 1360px;
+    margin: auto;
+}
+
+.header-off-screen-menu{
+    height: 122px;
+    width: 158px;
+    max-width: 450px;
+    position: fixed;
+    top: 0;
+    right: -450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: .3s ease;
+}
+
+header{
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.header-content-link{
+    font-size: 16px;
+    color: #19191C;
+}
+
+.header-off-screen-menu.active{
+    right: 0;
+    top: 60px;
+}
+
+nav{
+    padding: 1rem;
+    display: flex;
+    margin-left: auto;
+    position: relative;
+}
+
+.header-ham-menu span{
+    height: 5px;
+    width: 40px;
+    background-color: #19191C;
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+}
+
+.header-ham-menu span:nth-child(1){
+    top: 15%;
+}
+
+.header-ham-menu span:nth-child(3){
+    top: 85%;
+}
+
+.header-ham-menu.active span:nth-child(1){
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.header-ham-menu.active span:nth-child(2){
+    opacity: 0;
+}
+
+.header-ham-menu.active span:nth-child(3){
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.header-content{
+    padding-top: 15px;
+    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-content-link{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 17px;
+}
+
+.header-content-link:last-child{
+    margin-bottom: 0;
+}
+
+.header-content-link svg{
+    margin-right: 10px;
+}
+
+.header-content-link-nav{
+    text-decoration: none;
+    color: #19191C;
+    text-align: left;
+}
+
+.main-content{
+    margin-top: 75px;
+}
+
+.task{
+    margin-bottom: 25px;
+}
+
+.task-title{
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.task-title-link{
+    text-decoration: none;
+}
+
+.task-text{
+    margin-bottom: 10px;
+}

@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tasks.css' %}">
+    <script src="{% static 'js/ham-menu.js'%}" defer></script>
+    <title>Task manager</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="header-content-icon">{% include './icons/header-icon.svg'%}</a>
+                <div class="header-off-screen-menu">
+                    <ul class="header-content-menu">
+                        <li class="header-content-link">
+                            {% include './icons/user-alt.svg' %}
+                            <a href="#" class="header-content-link-nav">Profile</a>
+                        </li>
+                        <li class="header-content-link">
+                            {% include './icons/sign-out-square.svg' %}
+                            <a href="#" class="header-content-link-nav">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+                <nav>
+                    <div class="header-ham-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="main-content">
+                <div class="tasks">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+{% extends 'tasks/base.html'%}
+
+{% block content%}
+{% for task in tasks%}
+<div class="task">
+    <h2 class="task-title"><a href="{% url 'task_detail' pk=task.pk %}" class="task-title-link">{{task.title}}</a></h2>
+    <p class="task-text">{{task.description|linebreaksbr}}</p>
+    <time class="task-time">published: {{task.created_at}}</time>
+    <time class="task-time">updated: {{task.updated_at}}</time>
+</div>
+{% endfor %}
+{% endblock %}
