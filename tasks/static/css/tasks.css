@@ -110,6 +110,11 @@ nav{
 
 .main-content{
     margin-top: 75px;
+    display: flex;
+}
+
+.task-add{
+    display: inline-block;
 }
 
 .task{
@@ -119,7 +124,6 @@ nav{
 .task-title{
     font-size: 30px;
     font-weight: 600;
-    margin-bottom: 15px;
 }
 
 .task-title-link{
@@ -128,4 +132,29 @@ nav{
 
 .task-text{
     margin-bottom: 10px;
+}
+
+.new-post-form label{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.new-post-form input, textarea{
+    display: block;
+}
+
+.new-post-form-button{
+    margin-top: 15px;
+    padding: 5px 15px;
+}
+
+.task-title{
+    display: inline;
+    margin-right: 40px;
+}
+
+.task-edit{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
 }

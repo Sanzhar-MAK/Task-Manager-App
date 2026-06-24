@@ -1,7 +1,15 @@
 {% extends 'tasks/base.html' %}
 {% block content%}
 <div class="task">
-    <h2 class="task-title">{{task.title}}</a></h2>
+    <div class="task-edit">
+        <h2 class="task-title">{{task.title}}</a></h2>
+        {% if user.is_authenticated %}
+        <a href="{% url 'task_edit' pk=task.pk %}" class="task-edit-button btn btn-secondary">
+            {% include './icons/pencil-fill.svg' %}
+        </a>
+        {% endif %}
+    </div>
+
     <p class="task-text">{{task.description|linebreaksbr}}</p>
     {% if task.created_at %}
     <time class="task-time">published: {{task.created_at}}</time>
