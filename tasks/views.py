@@ -40,4 +40,9 @@ def task_edit(request, pk):
         form = TaskForm(instance=task)
     return render(request, 'tasks/task_edit.html', {'form':form})
 
+def task_remove(request, pk):
+    task = get_object_or_404(Task, pk=pk)
+    if request.method == 'POST':
+        task.delete()
+    return redirect('task_list')
     

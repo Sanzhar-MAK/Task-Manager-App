@@ -7,6 +7,15 @@
         <a href="{% url 'task_edit' pk=task.pk %}" class="task-edit-button btn btn-secondary">
             {% include './icons/pencil-fill.svg' %}
         </a>
+        <form action="{% url 'task_remove' task.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="task-delete-button btn btn-secondary"
+                onclick="return confirm('Are you sure you want to delete this?');">
+                {% include './icons/trash-icon.svg' %}
+            </button>
+        </form>
+
+
         {% endif %}
     </div>
 

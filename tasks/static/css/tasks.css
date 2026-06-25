@@ -111,6 +111,7 @@ nav{
 .main-content{
     margin-top: 75px;
     display: flex;
+    justify-content: space-between;
 }
 
 .task-add{
@@ -131,7 +132,32 @@ nav{
 }
 
 .task-text{
+    margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.task-title{
+    display: inline;
+}
+
+.task-edit{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.task-condition{
+    margin-top: 10px;
+    display: block;
+    font-weight: bold;
+}
+
+.complete{
+    color: #099962;
+}
+
+.not-complete{
+    color: #F70C0C;
 }
 
 .new-post-form label{
@@ -148,13 +174,10 @@ nav{
     padding: 5px 15px;
 }
 
-.task-title{
-    display: inline;
-    margin-right: 40px;
+.task-edit-button{
+    margin-left: 15px;
 }
 
-.task-edit{
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
+.task-delete-button{
+    margin-left: 15px;
 }
