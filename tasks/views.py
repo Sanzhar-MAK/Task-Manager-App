@@ -1,9 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Task
-from .forms import TaskForm
+from .forms import TaskForm, UserRegisterForm
 from django.utils import timezone
 
-# Create your views here.
 
 def task_list(request):
     tasks = Task.objects.filter(created_at__lte=timezone.now()).order_by('created_at')
@@ -46,3 +45,8 @@ def task_remove(request, pk):
         task.delete()
     return redirect('task_list')
     
+
+def user_register(request):
+    if request.method == 'POST':
+        pass
+    return render(request, 'tasks/registration/registr.html',{'form':4})

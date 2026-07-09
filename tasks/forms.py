@@ -12,5 +12,5 @@ class TaskForm(forms.ModelForm):
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
     class Meta:
-        model = User()
-        fields = ["email", "username", "password_1", "password_2"]
+        model = User
+        fields = ("email", "username", "password1", "password2")
