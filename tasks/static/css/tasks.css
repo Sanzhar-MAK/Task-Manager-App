@@ -181,3 +181,9 @@ nav{
 .task-delete-button{
     margin-left: 15px;
 }
+
+/* register form */
+.register-container{
+    font-family: "Inter", sans-serif;
+    padding: 100px 0;
+}
