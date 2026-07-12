@@ -187,3 +187,34 @@ nav{
     font-family: "Inter", sans-serif;
     padding: 100px 0;
 }
+
+.registration-side{
+    max-width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.registration-form-header{
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 35px;
+}
+
+.registration-form-item {
+    padding: 23px 22px;
+    display: block;
+    margin-bottom: 23px;
+    width: 458px;
+    border: 2px solid #CCCCCC;
+    border-radius: 16px;
+}
+
+.registration-form-item::placeholder{
+    font-size: 16px;
+    color: #19191C;
+}
+
+.registration-form-item:last-child{
+    margin-bottom: 0;
+}

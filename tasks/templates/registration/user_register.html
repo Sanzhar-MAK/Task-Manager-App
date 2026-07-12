@@ -18,11 +18,14 @@
 <body>
     <main>
         <div class="container register-container">
-            <div class="registration">
+            <div class="registration-side">
                 <h3 class="registration-form-header">Register</h3>
                 <form method="POST" class="registration-form">
                     {% csrf_token %}
-                    <h1>Some text</h1>
+                    {{ form.username }}
+                    {{ form.email }}
+                    {{ form.password1 }}
+                    {{ form.password2 }}
                 </form>
             </div>
 

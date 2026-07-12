@@ -47,6 +47,7 @@ def task_remove(request, pk):
     
 
 def user_register(request):
+    form = UserRegisterForm()
     if request.method == 'POST':
         pass
-    return render(request, 'registration/user_register.html',{'form':4})
+    return render(request, 'registration/user_register.html',{'form':form})
