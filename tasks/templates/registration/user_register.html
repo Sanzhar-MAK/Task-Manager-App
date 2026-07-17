@@ -18,7 +18,7 @@
 <body>
     <main>
         <div class="container register-container">
-            <div class="registration-side">
+            <div class="registration-side-left">
                 <h3 class="registration-form-header">Register</h3>
                 <form method="POST" class="registration-form">
                     {% csrf_token %}
@@ -28,8 +28,17 @@
                     {{ form.password2 }}
                     <button type="submit" class="registration-form-item registration-form-button">Register</button>
                 </form>
+                <div class="account-create">
+                    <span class="account-create-text">Already have an account?</span>
+                    <a href="#" class="account-create-link">Login</a>
+                </div>
             </div>
-
+            <div class="registration-side-right">
+                <h2 class="registration-side-right-title">Start <span>Organizing</span></h2>
+                <p class="registration-side-right-text">Start fresh with a simple and cozy way to organize your tasks,
+                    priorities, and daily plans.</p>
+                <img src="{% static 'templates/registration-image/registration-photo.png' %}" alt="registration-photo">
+            </div>
         </div>
     </main>
 
