@@ -12,32 +12,30 @@
         rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/tasks.css' %}">
-    <title>User registration</title>
+    <title>User login</title>
 </head>
 
 <body>
     <main>
         <div class="container register-container">
             <div class="registration-side-left">
-                <h3 class="registration-form-header">Register</h3>
+                <h3 class="registration-form-header">Login</h3>
                 <form method="POST" class="registration-form">
                     {% csrf_token %}
-                    {{ form.username }}
                     {{ form.email }}
                     {{ form.password1 }}
-                    {{ form.password2 }}
-                    <button type="submit" class="registration-form-item registration-form-button">Register</button>
+                    <button type="submit" class="registration-form-item registration-form-button">Login</button>
                 </form>
                 <div class="account-create">
-                    <span class="account-create-text">Already have an account?</span>
-                    <a href="#" class="account-create-link">Login</a>
+                    <span class="account-create-text">Don’t have an account?</span>
+                    <a href="#" class="account-create-link">Register</a>
                 </div>
             </div>
             <div class="registration-side-right">
-                <h2 class="registration-side-right-title">Start <span>Organizing</span></h2>
-                <p class="registration-side-right-text">Start fresh with a simple and cozy way to organize your tasks,
-                    priorities, and daily plans.</p>
-                <img src="{% static 'images/registration-photo.png' %}" alt="registration-photo">
+                <h2 class="registration-side-right-title">Start <span>Track</span></h2>
+                <p class="registration-side-right-text">Welcome back! Pick up right where you left off and stay on top
+                    of what matters most.</p>
+                <img src="{% static 'images/login-photo.png' %}" alt="registration-photo">
             </div>
         </div>
     </main>

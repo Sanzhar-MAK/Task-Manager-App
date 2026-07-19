@@ -46,8 +46,20 @@ def task_remove(request, pk):
     return redirect('task_list')
     
 
+def user_login(request):
+    form = UserRegisterForm()
+    if request.method == 'POST':
+        if form.is_valid():
+            print('form is valid')
+        else:
+            print('form is not valid')
+    return render(request, 'registration/user_login.html',{'form':form})
+
 def user_register(request):
     form = UserRegisterForm()
     if request.method == 'POST':
-        pass
+        if form.is_valid():
+            print('form is valid')
+        else:
+            print('form is not valid')
     return render(request, 'registration/user_register.html',{'form':form})
