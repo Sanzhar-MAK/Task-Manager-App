@@ -203,7 +203,7 @@ nav{
     margin-bottom: 35px;
 }
 
-.registration-form-item {
+.form-item {
     padding: 23px 22px;
     display: block;
     margin-bottom: 23px;
@@ -212,16 +212,16 @@ nav{
     border-radius: 16px;
 }
 
-.registration-form-item::placeholder{
+.form-item::placeholder{
     font-size: 16px;
     color: #19191C;
 }
 
-.registration-form-item:last-child{
+.form-item:last-child{
     margin-bottom: 0;
 }
 
-.registration-form-button{
+.form-button{
     width: 100%;
     background-color: #19191C;
     color: #FFFFFF;

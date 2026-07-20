@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Task
-from .forms import TaskForm, UserRegisterForm
+from .forms import TaskForm, UserRegisterForm, UserLoginForm
 from django.utils import timezone
 
 
@@ -47,19 +47,19 @@ def task_remove(request, pk):
     
 
 def user_login(request):
-    form = UserRegisterForm()
+    login_form = UserLoginForm()
     if request.method == 'POST':
-        if form.is_valid():
+        if login_form.is_valid():
             print('form is valid')
         else:
             print('form is not valid')
-    return render(request, 'registration/user_login.html',{'form':form})
+    return render(request, 'registration/user_login.html',{'login_form': login_form})
 
 def user_register(request):
-    form = UserRegisterForm()
+    reg_form = UserRegisterForm()
     if request.method == 'POST':
-        if form.is_valid():
+        if reg_form.is_valid():
             print('form is valid')
         else:
             print('form is not valid')
-    return render(request, 'registration/user_register.html',{'form':form})
+    return render(request, 'registration/user_register.html',{'reg_form':reg_form})

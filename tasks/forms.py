@@ -10,31 +10,49 @@ class TaskForm(forms.ModelForm):
 
 
 class UserLoginForm(AuthenticationForm):
-     pass
+     email = forms.EmailField(
+         widget=forms.EmailInput(
+              attrs={
+         "placeholder":"Email",
+         "class": "form-item login-form-email",
+         "autocomplete": "email"
+    }), required=True)
+     def __init__(self, *args, **kwargs):
+          super().__init__(*args, **kwargs)
+          self.fields["password"].widget.attrs.update({
+                 "placeholder":"Password",
+                 "class": "form-item login-form-username",
+                 "autocomplete": "password"
+            })
+     class Meta:
+          model = User
+          fields = ("email", "password")
+
+
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField(
          widget=forms.EmailInput(
               attrs={
          "placeholder":"Email",
-         "class": "registration-form-item registration-form-email",
+         "class": "form-item registration-form-email",
          "autocomplete": "email"
     }), required=True)
     def __init__(self, *args, **kwargs):
             super().__init__(*args, **kwargs)
             self.fields["username"].widget.attrs.update({
                  "placeholder":"Username",
-                 "class": "registration-form-item registration-form-username",
+                 "class": "form-item registration-form-username",
                  "autocomplete": "username"
             })
             self.fields["password1"].widget.attrs.update({
                  "placeholder":"Password",
-                 "class": "registration-form-item registration-form-password",
+                 "class": "form-item registration-form-password",
                  "autocomplete": "current-password"
             })
             self.fields["password2"].widget.attrs.update({
                  "placeholder":"Confirm password",
-                 "class": "registration-form-item registration-form-password",
+                 "class": "form-item registration-form-password",
                  "autocomplete": "current-password"
             })
     class Meta:

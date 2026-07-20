@@ -20,13 +20,13 @@
         <div class="container register-container">
             <div class="registration-side-left">
                 <h3 class="registration-form-header">Register</h3>
-                <form method="POST" class="registration-form">
+                <form method="POST" class="form-submit registration-form">
                     {% csrf_token %}
-                    {{ form.username }}
-                    {{ form.email }}
-                    {{ form.password1 }}
-                    {{ form.password2 }}
-                    <button type="submit" class="registration-form-item registration-form-button">Register</button>
+                    {{ reg_form.username }}
+                    {{ reg_form.email }}
+                    {{ reg_form.password1 }}
+                    {{ reg_form.password2 }}
+                    <button type="submit" class="form-item form-button registration-button">Register</button>
                 </form>
                 <div class="account-create">
                     <span class="account-create-text">Already have an account?</span>
