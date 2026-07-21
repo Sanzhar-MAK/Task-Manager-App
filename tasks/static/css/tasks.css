@@ -266,3 +266,8 @@ nav{
     color: #757575;
     margin-bottom: 50px;
 }
+
+.form-errors{
+    margin-bottom: 30px;
+    font-size: 20px;
+}

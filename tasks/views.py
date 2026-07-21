@@ -56,10 +56,11 @@ def user_login(request):
     return render(request, 'registration/user_login.html',{'login_form': login_form})
 
 def user_register(request):
-    reg_form = UserRegisterForm()
     if request.method == 'POST':
+        reg_form = UserRegisterForm(request.POST)
         if reg_form.is_valid():
-            print('form is valid')
-        else:
-            print('form is not valid')
+            reg_form.save()
+            return redirect('user_login')
+    else:
+        reg_form = UserRegisterForm()
     return render(request, 'registration/user_register.html',{'reg_form':reg_form})

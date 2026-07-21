@@ -22,10 +22,26 @@
                 <h3 class="registration-form-header">Register</h3>
                 <form method="POST" class="form-submit registration-form">
                     {% csrf_token %}
+
                     {{ reg_form.username }}
+                    <div class="form-errors">
+                        {{ reg_form.username.errors }}
+                    </div>
+
                     {{ reg_form.email }}
+                    <div class="form-errors">
+                        {{ reg_form.email.errors }}
+                    </div>
+
                     {{ reg_form.password1 }}
+                    <div class="form-errors">
+                        {{ reg_form.password1.errors }}
+                    </div>
+
                     {{ reg_form.password2 }}
+                    <div class="form-errors">
+                        {{ reg_form.password2.errors }}
+                    </div>
                     <button type="submit" class="form-item form-button registration-button">Register</button>
                 </form>
                 <div class="account-create">
