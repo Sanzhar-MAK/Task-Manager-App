@@ -10,25 +10,18 @@ class TaskForm(forms.ModelForm):
 
 
 class UserLoginForm(AuthenticationForm):
-     email = forms.EmailField(
-         widget=forms.EmailInput(
-              attrs={
-         "placeholder":"Email",
-         "class": "form-item login-form-email",
-         "autocomplete": "email"
-    }), required=True)
      def __init__(self, *args, **kwargs):
           super().__init__(*args, **kwargs)
+          self.fields["username"].widget.attrs.update({
+                 "placeholder":"Username",
+                 "class": "form-item login-form-username",
+                 "autocomplete": "username"
+            })
           self.fields["password"].widget.attrs.update({
                  "placeholder":"Password",
-                 "class": "form-item login-form-username",
+                 "class": "form-item login-form-password",
                  "autocomplete": "password"
             })
-     class Meta:
-          model = User
-          fields = ("email", "password")
-
-
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField(

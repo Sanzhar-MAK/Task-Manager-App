@@ -22,7 +22,7 @@
                 <h3 class="registration-form-header">Login</h3>
                 <form method="POST" class="form-submit login-form">
                     {% csrf_token %}
-                    {{ login_form.email }}
+                    {{ login_form.username }}
                     {{ login_form.password }}
                     <button type="submit" class="form-item form-button login-button">Login</button>
                 </form>
