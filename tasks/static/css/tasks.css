@@ -108,6 +108,11 @@ nav{
     text-align: left;
 }
 
+.header-content-username{
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .main-content{
     margin-top: 75px;
     display: flex;
