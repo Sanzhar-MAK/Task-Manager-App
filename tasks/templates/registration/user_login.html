@@ -22,9 +22,18 @@
                 <h3 class="registration-form-header">Login</h3>
                 <form method="POST" class="form-submit login-form">
                     {% csrf_token %}
+                    {{ login_form.non_field_errors }}
                     {{ login_form.username }}
                     {{ login_form.password }}
                     <button type="submit" class="form-item form-button login-button">Login</button>
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                            {% endfor %}
+                    </ul>
+                    {% endif %}
+
                 </form>
                 <div class="account-create">
                     <span class="account-create-text">Don’t have an account?</span>

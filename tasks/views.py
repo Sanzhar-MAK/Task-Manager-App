@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Task
 from .forms import TaskForm, UserRegisterForm, UserLoginForm
 from django.utils import timezone
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.messages import constants as messages
 
 
 def task_list(request):
@@ -56,12 +57,18 @@ def user_login(request):
         if user is not None:
             login(request, user)
             return redirect('task_list')
+        else:
+            login_form.add_error(
+                None,
+                "Invalid username or password."
+            )
     else:
         login_form = UserLoginForm()
     return render(request, 'registration/user_login.html',{'login_form': login_form})
 
 def user_logout(request):
-    pass
+    logout(request)
+    return redirect('user_login')
 
 def user_register(request):
     if request.method == 'POST':

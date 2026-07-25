@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+LOGOUT_REDIRECT_URL = '/'  # Redirects to the homepage
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
