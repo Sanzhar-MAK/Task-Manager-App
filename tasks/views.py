@@ -50,20 +50,10 @@ def task_remove(request, pk):
 
 def user_login(request):
     if request.method == 'POST':
-        login_form = UserLoginForm(request.POST)
-        username = request.POST["username"]
-        password = request.POST["password"]
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
+        login_form = UserLoginForm(request, data=request.POST)
+        if login_form.is_valid():
+            login(request, login_form.get_user())
             return redirect('task_list')
-        else:
-            login_form.add_error(
-                None,
-                "Invalid username or password."
-            )
-    else:
-        login_form = UserLoginForm()
     return render(request, 'registration/user_login.html',{'login_form': login_form})
 
 def user_logout(request):
