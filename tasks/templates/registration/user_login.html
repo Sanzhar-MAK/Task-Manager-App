@@ -25,9 +25,11 @@
                     <div class="form-errors login-form-errors">
                         {{ login_form.non_field_errors }}
                     </div>
+
                     {{ login_form.username }}
                     {{ login_form.password }}
                     <button type="submit" class="form-item form-button login-button">Login</button>
+
                     {% if messages %}
                     <ul class="messages">
                         {% for message in messages %}

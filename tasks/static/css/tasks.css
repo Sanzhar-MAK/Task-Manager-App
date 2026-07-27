@@ -196,7 +196,7 @@ nav{
 }
 
 .registration-side-left{
-    max-width: 40%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -208,11 +208,16 @@ nav{
     margin-bottom: 35px;
 }
 
+.registration-form, .login-form{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
 .form-item {
     padding: 23px 22px;
     display: block;
     margin-bottom: 23px;
-    width: 458px;
     border: 2px solid #CCCCCC;
     border-radius: 16px;
 }
@@ -227,7 +232,6 @@ nav{
 }
 
 .form-button{
-    width: 100%;
     background-color: #19191C;
     color: #FFFFFF;
     font-size: 20px;
@@ -275,8 +279,4 @@ nav{
 .form-errors{
     margin-bottom: 30px;
     font-size: 20px;
-}
-
-.login-form-errors{
-    
 }

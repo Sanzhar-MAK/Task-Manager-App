@@ -54,6 +54,8 @@ def user_login(request):
         if login_form.is_valid():
             login(request, login_form.get_user())
             return redirect('task_list')
+    else:
+        login_form = UserLoginForm() 
     return render(request, 'registration/user_login.html',{'login_form': login_form})
 
 def user_logout(request):
