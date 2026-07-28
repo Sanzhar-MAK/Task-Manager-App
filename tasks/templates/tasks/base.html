@@ -24,18 +24,19 @@
             <div class="header-content">
                 <a href="/" class="header-content-icon">{% include './icons/header-icon.svg'%}</a>
                 <p class="header-content-username">Hello {{ user.username }}</p>
-                <div class="header-off-screen-menu">
-                    <ul class="header-content-menu">
-                        <li class="header-content-link">
+                <nav class="header-off-screen-menu">
+                    <div class="header-content-menu">
+                        <div class="header-content-link">
                             {% include './icons/user-alt.svg' %}
                             <a href="#" class="header-content-link-nav">Profile</a>
-                        </li>
-                        <li class="header-content-link">
+                        </div>
+                        <form method="POST" action="{% url 'user_logout' %}" class="header-content-link">
+                            {% csrf_token %}
                             {% include './icons/sign-out-square.svg' %}
-                            <a href="{% url 'user_register' %}" class="header-content-link-nav">Logout</a>
-                        </li>
-                    </ul>
-                </div>
+                            <button type="submit" class="header-content-logout-button">Logout</button>
+                        </form>
+                    </div>
+                </nav>
                 <nav>
                     <div class="header-ham-menu">
                         <span></span>

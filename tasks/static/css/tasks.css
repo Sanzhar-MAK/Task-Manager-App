@@ -90,7 +90,6 @@ nav{
 .header-content-link{
     display: flex;
     align-items: center;
-    justify-content: space-between;
     margin-bottom: 17px;
 }
 
@@ -106,6 +105,12 @@ nav{
     text-decoration: none;
     color: #19191C;
     text-align: left;
+}
+
+.header-content-logout-button{
+    border: none;
+    background: transparent;
+    padding: 0;
 }
 
 .header-content-username{
