@@ -7,8 +7,10 @@ from django.contrib.messages import constants as messages
 
 
 def task_list(request):
-    tasks = Task.objects.filter(created_at__lte=timezone.now()).order_by('created_at')
-    return render(request, 'tasks/task_list.html', {'tasks': tasks})
+    if request.user.is_authenticated:
+        tasks = Task.objects.filter(created_at__lte=timezone.now()).order_by('created_at')
+        return render(request, 'tasks/task_list.html', {'tasks': tasks})
+    return redirect('user_login')
 
 def task_detail(request, pk):
     task = get_object_or_404(Task, pk=pk)
