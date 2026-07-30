@@ -22,7 +22,7 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="/" class="header-content-icon">{% include './icons/header-icon.svg'%}</a>
+                <a href="{% url 'task_list' %}" class="header-content-icon">{% include './icons/header-icon.svg'%}</a>
                 <p class="header-content-username">Hello {{ user.username }}</p>
                 <nav class="header-off-screen-menu">
                     <div class="header-content-menu">

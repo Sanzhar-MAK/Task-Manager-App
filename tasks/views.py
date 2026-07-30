@@ -4,18 +4,19 @@ from .forms import TaskForm, UserRegisterForm, UserLoginForm
 from django.utils import timezone
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.messages import constants as messages
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def task_list(request):
-    if request.user.is_authenticated:
-        tasks = Task.objects.filter(created_at__lte=timezone.now()).order_by('created_at')
-        return render(request, 'tasks/task_list.html', {'tasks': tasks})
-    return redirect('user_login')
+    tasks = Task.objects.filter(created_at__lte=timezone.now()).order_by('created_at')
+    return render(request, 'tasks/task_list.html', {'tasks': tasks})
 
+@login_required
 def task_detail(request, pk):
     task = get_object_or_404(Task, pk=pk)
     return render(request, 'tasks/task_detail.html', {'task': task})
 
+@login_required
 def task_new(request):
     if request.method == 'POST':
         form = TaskForm(request.POST)
@@ -28,7 +29,8 @@ def task_new(request):
     else:
         form = TaskForm()
     return render(request, 'tasks/task_edit.html', {'form':form})
-    
+
+@login_required   
 def task_edit(request, pk):
     task = get_object_or_404(Task, pk=pk)
     if request.method == 'POST':
@@ -43,6 +45,7 @@ def task_edit(request, pk):
         form = TaskForm(instance=task)
     return render(request, 'tasks/task_edit.html', {'form':form})
 
+@login_required
 def task_remove(request, pk):
     task = get_object_or_404(Task, pk=pk)
     if request.method == 'POST':

@@ -15,6 +15,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 LOGOUT_REDIRECT_URL = '/'  # Redirects to the homepage
 BASE_DIR = Path(__file__).resolve().parent.parent
+LOGIN_URL = "user_login"
 
 
 # Quick-start development settings - unsuitable for production
