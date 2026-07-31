@@ -52,7 +52,6 @@ def task_remove(request, pk):
         task.delete()
     return redirect('task_list')
     
-
 def user_login(request):
     if request.method == 'POST':
         login_form = UserLoginForm(request, data=request.POST)
@@ -76,3 +75,6 @@ def user_register(request):
     else:
         reg_form = UserRegisterForm()
     return render(request, 'registration/user_register.html',{'reg_form':reg_form})
+
+def user_profile(request):
+    return render(request, 'tasks/user_profile.html')

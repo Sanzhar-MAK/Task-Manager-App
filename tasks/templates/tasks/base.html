@@ -28,7 +28,7 @@
                     <div class="header-content-menu">
                         <div class="header-content-link">
                             {% include './icons/user-alt.svg' %}
-                            <a href="#" class="header-content-link-nav">Profile</a>
+                            <a href="{% url 'user_profile' %}" class="header-content-link-nav">Profile</a>
                         </div>
                         <form method="POST" action="{% url 'user_logout' %}" class="header-content-link">
                             {% csrf_token %}
