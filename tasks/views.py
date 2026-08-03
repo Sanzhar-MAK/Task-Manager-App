@@ -2,13 +2,14 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Task
 from .forms import TaskForm, UserRegisterForm, UserLoginForm
 from django.utils import timezone
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import login, logout
 from django.contrib.messages import constants as messages
 from django.contrib.auth.decorators import login_required
 
 @login_required
 def task_list(request):
-    tasks = Task.objects.filter(created_at__lte=timezone.now()).order_by('created_at')
+    author = request.user
+    tasks = Task.objects.filter(author = author).filter(created_at__lte=timezone.now()).order_by('created_at')
     return render(request, 'tasks/task_list.html', {'tasks': tasks})
 
 @login_required
