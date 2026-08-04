@@ -8,13 +8,12 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def task_list(request):
-    author = request.user
-    tasks = Task.objects.filter(author = author).filter(created_at__lte=timezone.now()).order_by('created_at')
+    tasks = Task.objects.filter(author = request.user).filter(created_at__lte=timezone.now()).order_by('created_at')
     return render(request, 'tasks/task_list.html', {'tasks': tasks})
 
 @login_required
 def task_detail(request, pk):
-    task = get_object_or_404(Task, pk=pk)
+    task = get_object_or_404(Task, pk=pk, author = request.user)
     return render(request, 'tasks/task_detail.html', {'task': task})
 
 @login_required
@@ -33,7 +32,7 @@ def task_new(request):
 
 @login_required   
 def task_edit(request, pk):
-    task = get_object_or_404(Task, pk=pk)
+    task = get_object_or_404(Task, pk=pk, author = request.user)
     if request.method == 'POST':
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():

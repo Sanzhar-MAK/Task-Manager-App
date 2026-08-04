@@ -10,7 +10,7 @@
         <form action="{% url 'task_remove' task.id %}" method="POST">
             {% csrf_token %}
             <button type="submit" class="task-delete-button btn btn-secondary"
-                onclick="return confirm('Are you sure you want to delete this?');">
+                onclick="return confirm('Are you sure you want to delete this task?');">
                 {% include './icons/trash-icon.svg' %}
             </button>
         </form>
