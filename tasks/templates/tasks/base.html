@@ -55,11 +55,10 @@
                     {% endblock %}
                 </div>
                 <div class="task-add">
-                    {% if user.is_authenticated %}
+                    <button class="add-new-task">+ New task</button>
                     <a href="{% url 'task_new' %}" class="task-add-icon">
                         {% include './icons/file-earmark-plus.svg' %}
                     </a>
-                    {% endif %}
                 </div>
             </div>
         </div>

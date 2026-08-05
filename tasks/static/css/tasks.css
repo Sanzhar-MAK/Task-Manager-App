@@ -285,3 +285,11 @@ nav{
     margin-bottom: 30px;
     font-size: 20px;
 }
+
+.add-new-task{
+    color: #fff;
+    background-color: #19191C;
+    padding: 20px;
+    border-radius: 10px;
+    font-weight: bold;
+}
