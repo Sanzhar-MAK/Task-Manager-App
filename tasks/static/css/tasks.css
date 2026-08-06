@@ -118,18 +118,44 @@ nav{
     font-weight: bold;
 }
 
-.main-content{
+.functionality-side{
     margin-top: 75px;
+    margin-bottom: 48px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-.task-add{
-    display: inline-block;
+.search-container{
+    position: relative;
+    width: 470px;
+}
+
+.search-container svg{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 10px;
+    top: 7px;
+    cursor: pointer;
+}
+
+.search-add-text{
+    width: 100%;
+    padding: 10px 12px 10px 40px; 
+    font-size: 16px;
+    border: 1px solid #CCCCCC;
+    border-radius: 10px;
+    outline: none;
+}
+
+.search-add-text::placeholder{
+    color: #A6A6AD;
+    font-size: 20px;
 }
 
 .task{
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 .task-title{
@@ -287,9 +313,11 @@ nav{
 }
 
 .add-new-task{
+    display: inline-block;
     color: #fff;
     background-color: #19191C;
     padding: 20px;
     border-radius: 10px;
     font-weight: bold;
+    text-decoration: none;
 }

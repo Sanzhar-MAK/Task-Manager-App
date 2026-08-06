@@ -50,16 +50,24 @@
     <main>
         <div class="container">
             <div class="main-content">
-                <div class="tasks">
+                <div class="functionality-side">
+                    <div class="search-container">
+                        {% include './icons/search-icon.svg' %}
+                        <input type="text" placeholder="Search..." class="search-add-text">
+                    </div>
+
+                    <div class="task-container">
+                        <a href="{% url 'task_new' %}" class="add-new-task">
+                            + New task
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tasks-side">
                     {% block content %}
                     {% endblock %}
                 </div>
-                <div class="task-add">
-                    <button class="add-new-task">+ New task</button>
-                    <a href="{% url 'task_new' %}" class="task-add-icon">
-                        {% include './icons/file-earmark-plus.svg' %}
-                    </a>
-                </div>
+
             </div>
         </div>
 
