@@ -133,16 +133,14 @@ nav{
 
 .search-container svg{
     position: absolute;
-    width: 25px;
-    height: 25px;
-    left: 10px;
-    top: 7px;
+    left: 12px;
+    top: 15px;
     cursor: pointer;
 }
 
 .search-add-text{
     width: 100%;
-    padding: 10px 12px 10px 40px; 
+    padding: 20px 12px 20px 50px; 
     font-size: 16px;
     border: 1px solid #CCCCCC;
     border-radius: 10px;
@@ -320,4 +318,8 @@ nav{
     border-radius: 10px;
     font-weight: bold;
     text-decoration: none;
+}
+
+.remove-button{
+    display: none;
 }
