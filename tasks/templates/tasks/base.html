@@ -51,7 +51,7 @@
         <div class="container">
             <div class="main-content">
                 <div class="functionality-side">
-                    <form method="GET" class="search-container" action="{% url 'search_task'%}">
+                    <form method="GET" class="search-container" action="{% url 'task_list'%}">
                         {% csrf_token %}
                         <button class="search-button" type="submit">{% include './icons/search-icon.svg' %}</button>
                         <input type="text" placeholder="Search..." class="search-add-text" name="search">

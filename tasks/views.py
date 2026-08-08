@@ -8,7 +8,13 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def task_list(request):
-    tasks = Task.objects.filter(author = request.user).filter(created_at__lte=timezone.now()).order_by('created_at')
+    search = request.GET.get("search")
+    if search:
+        tasks = Task.objects.filter(author = request.user,
+                                    title__icontains=search).order_by('created_at')
+    else:
+        tasks = Task.objects.filter(author = request.user, 
+                                    created_at__lte=timezone.now()).order_by('created_at')
     return render(request, 'tasks/task_list.html', {'tasks': tasks})
 
 @login_required
@@ -79,7 +85,3 @@ def user_register(request):
 def user_profile(request):
     return render(request, 'tasks/user_profile.html')
 
-def search_task(request):
-    search = request.GET.get("search")
-    search_response = Task.objects.filter(author = request.user).filter(title__icontains=search).order_by('created_at')
-    return render(request, 'tasks/search_task.html', {'tasks': search_response})
