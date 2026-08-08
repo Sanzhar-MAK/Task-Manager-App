@@ -78,3 +78,8 @@ def user_register(request):
 
 def user_profile(request):
     return render(request, 'tasks/user_profile.html')
+
+def search_task(request):
+    search = request.GET.get("search")
+    search_response = Task.objects.filter(author = request.user).filter(title__icontains=search).order_by('created_at')
+    return render(request, 'tasks/search_task.html', {'tasks': search_response})

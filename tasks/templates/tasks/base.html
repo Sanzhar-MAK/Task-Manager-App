@@ -51,11 +51,11 @@
         <div class="container">
             <div class="main-content">
                 <div class="functionality-side">
-                    <div class="search-container">
-                        {% include './icons/search-icon.svg' %}
-                        <input type="text" placeholder="Search..." class="search-add-text">
-                    </div>
-
+                    <form method="GET" class="search-container" action="{% url 'search_task'%}">
+                        {% csrf_token %}
+                        <button class="search-button" type="submit">{% include './icons/search-icon.svg' %}</button>
+                        <input type="text" placeholder="Search..." class="search-add-text" name="search">
+                    </form>
                     <div class="task-container">
                         <a href="{% url 'task_new' %}" class="add-new-task">
                             + New task
