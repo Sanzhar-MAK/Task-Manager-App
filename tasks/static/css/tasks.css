@@ -159,8 +159,13 @@ nav{
     background-color: #F5F5F5;
     padding: 24px 16px;
     border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
+.task-detail{
+    display: block;
+}
 
 .task:last-child{
     margin-bottom: 0;
@@ -195,6 +200,26 @@ nav{
     margin-top: 10px;
     display: block;
     font-weight: bold;
+}
+
+.priority{
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.priority-high{
+    background-color: #FF9800;
+}
+
+.priority-medium{
+    background-color: #FFEB3B;
+}
+
+.priority-low{
+    background-color: #4CAF50;
 }
 
 .complete{

@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ('title', 'description','completed')
+        fields = ('title', 'description','completed','priority')
 
 
 class UserLoginForm(AuthenticationForm):
