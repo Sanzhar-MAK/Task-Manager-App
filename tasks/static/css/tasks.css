@@ -155,16 +155,25 @@ nav{
 }
 
 .task{
-    margin-bottom: 30px;
+    margin-bottom: 16px;
+    background-color: #F5F5F5;
+    padding: 24px 16px;
+    border-radius: 10px;
+}
+
+
+.task:last-child{
+    margin-bottom: 0;
 }
 
 .task-title{
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 600;
 }
 
 .task-title-link{
     text-decoration: none;
+    color: #000;
 }
 
 .task-text{
@@ -172,8 +181,8 @@ nav{
     margin-bottom: 10px;
 }
 
-.task-title{
-    display: inline;
+.task-text, .task-time{
+    color: #A6A6AD;
 }
 
 .task-edit{
