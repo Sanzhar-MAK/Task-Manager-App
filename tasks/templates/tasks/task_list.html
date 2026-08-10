@@ -16,15 +16,10 @@
         {% endif %}
     </div>
     <div class="task-priority">
-        {% if task.priority == "high" %}
-        <span class="priority priority-high">{{task.priority}}</span>
-        {% elif task.priority == "medium" %}
-        <span class="priority priority-medium">{{task.priority}}</span>
-        {% else %}
-        <span class="priority priority-low">{{task.priority}}</span>
-        {% endif %}
+        <span class="priority priority-{{ task.priority }}">
+            {{ task.get_priority_display }}
+        </span>
     </div>
-
 </div>
 {% endfor %}
 {% endblock %}
