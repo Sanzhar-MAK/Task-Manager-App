@@ -63,9 +63,20 @@
                     </div>
                 </div>
 
-                <div class="container">
-                    <div class="task-priority-info"></div>
+
+                <div class="task-priority-info">
+                    <form method="GET" class="task-priority-info-form">
+                        <button type="submit" name="priority" value=""
+                            class="task-priority-button priority-all">All</button>
+                        <button type="submit" name="priority" value="low"
+                            class="task-priority-button priority-low">Low</button>
+                        <button type="submit" name="priority" value="medium"
+                            class="task-priority-button priority-medium">Medium</button>
+                        <button type="submit" name="priority" value="high"
+                            class="task-priority-button priority-high">High</button>
+                    </form>
                 </div>
+
 
                 <div class="tasks-side">
                     {% block content %}

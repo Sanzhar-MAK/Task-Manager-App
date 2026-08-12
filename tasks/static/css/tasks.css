@@ -182,8 +182,8 @@ nav{
 }
 
 .task-text{
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .task-text, .task-time{
@@ -200,6 +200,27 @@ nav{
     margin-top: 10px;
     display: block;
     font-weight: bold;
+}
+
+.task-priority-info{
+    margin-top: 88px;
+    margin-bottom: 65px;
+}
+
+.task-priority-button{
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    width: 180px;
+    border-radius: 10px;
+    margin-right: 30px;
+    color: #19191C;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.task-priority-button:last-child{
+    margin-right: 0;
 }
 
 .priority{
