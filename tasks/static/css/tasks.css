@@ -219,6 +219,10 @@ nav{
     font-weight: bold;
 }
 
+.tasks-side{
+    margin-top: 65px;
+}
+
 .task-priority-button:last-child{
     margin-right: 0;
 }
@@ -251,18 +255,49 @@ nav{
     color: #F70C0C;
 }
 
-.new-post-form label{
-    margin-top: 15px;
-    margin-bottom: 15px;
+.new-post-form p{
+    margin-bottom: 20px;
 }
 
-.new-post-form input, textarea{
+.new-post-form p:nth-child(4){
+    display: flex;
+}
+
+.new-post-form p select{
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.new-post-form label{
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+
+.form-input{
     display: block;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid;
+    padding: 10px 15px;
+}
+
+.form-checkbox{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
 }
 
 .new-post-form-button{
-    margin-top: 15px;
+    display: inline-block;
+    color: #fff;
+    background-color: #19191C;
     padding: 5px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    border: none;
+    width: 10%;
 }
 
 .task-edit-button{

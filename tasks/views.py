@@ -13,9 +13,8 @@ def task_list(request):
     tasks = Task.objects.filter(author = request.user)
     if search:
         tasks = tasks.filter(title__icontains=search)
-    elif priority:
+    if priority:
         tasks = tasks.filter(priority=priority)
-
     tasks = tasks.order_by('created_at')
     return render(request, 'tasks/task_list.html', {'tasks': tasks})
 

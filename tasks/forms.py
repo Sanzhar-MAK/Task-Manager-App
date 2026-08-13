@@ -7,6 +7,17 @@ class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
         fields = ('title', 'description','completed','priority')
+        widgets = {
+             'completed': forms.CheckboxInput(attrs={
+                'class': 'form-input form-checkbox',
+            }),
+            'title': forms.TextInput(attrs={
+               'class': 'form-input',
+          }),
+          'description': forms.Textarea(attrs={
+               'class': 'form-input',
+          }),
+        }
 
 
 class UserLoginForm(AuthenticationForm):
