@@ -190,6 +190,14 @@ nav{
     color: #A6A6AD;
 }
 
+.task-time{
+    display: block;
+}
+
+.published-time{
+    margin-bottom: 10px;
+}
+
 .task-edit{
     display: flex;
     align-items: center;
