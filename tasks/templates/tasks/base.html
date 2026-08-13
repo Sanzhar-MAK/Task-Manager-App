@@ -62,10 +62,8 @@
                         </a>
                     </div>
                 </div>
-
-
                 <div class="task-priority-info">
-                    <form method="GET" class="task-priority-info-form">
+                    <form method="GET" class="task-priority-info-form" action="{% url 'task_list' %}">
                         <button type="submit" name="priority" value=""
                             class="task-priority-button priority-all">All</button>
                         <button type="submit" name="priority" value="low"
