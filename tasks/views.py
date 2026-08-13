@@ -10,16 +10,13 @@ from django.contrib.auth.decorators import login_required
 def task_list(request):
     search = request.GET.get("search")
     priority = request.GET.get("priority")
+    tasks = Task.objects.filter(author = request.user)
     if search:
-        tasks = Task.objects.filter(author = request.user,
-                                    title__icontains=search).order_by('created_at')
+        tasks = tasks.filter(title__icontains=search)
     elif priority:
-        tasks = Task.objects.filter(author = request.user, 
-                                        priority=priority).order_by('created_at')
-    else:
-        tasks = Task.objects.filter(author = request.user, 
-                                    created_at__lte=timezone.now()).order_by('created_at')
-    
+        tasks = tasks.filter(priority=priority)
+
+    tasks = tasks.order_by('created_at')
     return render(request, 'tasks/task_list.html', {'tasks': tasks})
 
 @login_required
