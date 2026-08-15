@@ -227,6 +227,18 @@ nav{
     font-weight: bold;
 }
 
+.task-scheduled label{
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.task-date-calendar{
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
 .tasks-side{
     margin-top: 65px;
 }

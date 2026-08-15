@@ -75,6 +75,12 @@
                             class="task-priority-button priority-high">High</button>
                     </form>
                 </div>
+                <div class="task-scheduled">
+                    <form method="GET" action="#">
+                        <label for="task-date" class="task-date-label">Select a date:</label>
+                        <input type="date" id="birthday" name="task-date" class="task-date-calendar">
+                    </form>
+                </div>
                 {% endblock%}
                 <div class="tasks-side">
                     {% block content %}
