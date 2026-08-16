@@ -76,9 +76,10 @@
                     </form>
                 </div>
                 <div class="task-scheduled">
-                    <form method="GET" action="#">
+                    <form method="GET" action="{% url 'task_list' %}">
                         <label for="task-date" class="task-date-label">Select a date:</label>
                         <input type="date" id="birthday" name="task-date" class="task-date-calendar">
+                        <button class="date-button">Send</button>
                     </form>
                 </div>
                 {% endblock%}
