@@ -6,6 +6,20 @@ from django.contrib.auth import login, logout
 from django.contrib.messages import constants as messages
 from django.contrib.auth.decorators import login_required
 
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+from .models import Task
+from .serializers import TaskSerializer
+
+
+@api_view(["GET"])
+def task_api_list(request):
+    tasks = Task.objects.filter(author=request.user)
+    serializer = TaskSerializer(tasks, many=True)
+    return Response(serializer.data)
+
 @login_required
 def task_list(request):
     search = request.GET.get("search")
