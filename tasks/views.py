@@ -14,11 +14,21 @@ from .models import Task
 from .serializers import TaskSerializer
 
 
-@api_view(["GET"])
+@api_view(["GET", "POST"])
 def task_api_list(request):
-    tasks = Task.objects.filter(author=request.user)
-    serializer = TaskSerializer(tasks, many=True)
-    return Response(serializer.data)
+    
+    if request.method == "GET":
+        tasks = Task.objects.filter(author=request.user)
+        serializer = TaskSerializer(tasks, many=True)
+        return Response(serializer.data)
+
+    if request.method == "POST":
+        serializer = TaskSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(author=request.user)
+            return Response(serializer.data)
+        return Response(serializer.errors)
+
 
 @login_required
 def task_list(request):
