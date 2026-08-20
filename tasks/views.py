@@ -16,7 +16,6 @@ from .serializers import TaskSerializer
 
 @api_view(["GET", "POST"])
 def task_api_list(request):
-    
     if request.method == "GET":
         tasks = Task.objects.filter(author=request.user)
         serializer = TaskSerializer(tasks, many=True)
