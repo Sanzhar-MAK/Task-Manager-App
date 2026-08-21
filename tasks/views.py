@@ -28,6 +28,16 @@ def task_api_list(request):
             return Response(serializer.data)
         return Response(serializer.errors)
 
+@api_view(["GET"])
+def task_api_detail(request, pk):
+    task = get_object_or_404(
+        Task,
+        pk=pk,
+        author=request.user
+    )
+    serializer = TaskSerializer(task)
+    return Response(serializer.data)
+
 
 @login_required
 def task_list(request):
