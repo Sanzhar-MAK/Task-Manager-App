@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework import status
 
 from .models import Task
 from .serializers import TaskSerializer
@@ -28,14 +29,34 @@ def task_api_list(request):
             return Response(serializer.data)
         return Response(serializer.errors)
 
-@api_view(["GET"])
-def task_api_detail(request, pk):
-    task = get_object_or_404(
-        Task,
-        pk=pk,
-        author=request.user
-    )
-    serializer = TaskSerializer(task)
+@api_view(["GET", "DELETE"])
+def task_api_detail(request, pk): 
+    if request.method == "GET":
+        task = get_object_or_404(
+            Task,
+            pk=pk,
+            author=request.user
+        )
+        serializer = TaskSerializer(task)    
+        return Response(serializer.data)
+    
+    if request.method == "DELETE":
+        task = get_object_or_404(
+            Task,
+            pk=pk,
+            author=request.user
+        )
+        task.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+    
+
+@api_view(["GET", "DELETE"])
+def task_api_delete(request, pk):
+    task = get_object_or_404(Task, pk=pk, author = request.user)
+    if request.method == "POST":
+        serializer = TaskSerializer(task)
+        serializer.delete()
     return Response(serializer.data)
 
 
