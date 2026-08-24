@@ -29,7 +29,7 @@ def task_api_list(request):
             return Response(serializer.data)
         return Response(serializer.errors)
 
-@api_view(["GET", "DELETE"])
+@api_view(["GET", "DELETE", "PATCH"])
 def task_api_detail(request, pk): 
     if request.method == "GET":
         task = get_object_or_404(
@@ -49,6 +49,17 @@ def task_api_detail(request, pk):
         task.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
+    if request.method == "PATCH":
+        task = get_object_or_404(
+            Task,
+            pk=pk,
+            author=request.user
+        )
+        serializer = TaskSerializer(instance=task, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
     
 
 @api_view(["GET", "DELETE"])
