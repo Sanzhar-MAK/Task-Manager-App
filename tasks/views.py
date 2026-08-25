@@ -29,7 +29,7 @@ def task_api_list(request):
             return Response(serializer.data)
         return Response(serializer.errors)
 
-@api_view(["GET", "DELETE", "PATCH"])
+@api_view(["GET", "DELETE", "PATCH", "PUT"])
 def task_api_detail(request, pk): 
     if request.method == "GET":
         task = get_object_or_404(
@@ -56,6 +56,19 @@ def task_api_detail(request, pk):
             author=request.user
         )
         serializer = TaskSerializer(instance=task, data=request.data, partial=True)
+        print(serializer)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
+
+    if request.method == "PUT":
+        task = get_object_or_404(
+            Task,
+            pk=pk,
+            author=request.user
+        )
+        serializer = TaskSerializer(instance=task, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
