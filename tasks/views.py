@@ -7,15 +7,17 @@ from django.contrib.messages import constants as messages
 from django.contrib.auth.decorators import login_required
 
 
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
 
 from .models import Task
 from .serializers import TaskSerializer
 
 
 @api_view(["GET", "POST"])
+@permission_classes([IsAuthenticated])
 def task_api_list(request):
     if request.method == "GET":
         tasks = Task.objects.filter(author=request.user)
@@ -30,6 +32,7 @@ def task_api_list(request):
         return Response(serializer.errors)
 
 @api_view(["GET", "DELETE", "PATCH", "PUT"])
+@permission_classes([IsAuthenticated])
 def task_api_detail(request, pk): 
     if request.method == "GET":
         task = get_object_or_404(
@@ -76,6 +79,7 @@ def task_api_detail(request, pk):
     
 
 @api_view(["GET", "DELETE"])
+@permission_classes([IsAuthenticated])
 def task_api_delete(request, pk):
     task = get_object_or_404(Task, pk=pk, author = request.user)
     if request.method == "POST":
