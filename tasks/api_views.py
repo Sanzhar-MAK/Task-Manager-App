@@ -15,8 +15,6 @@ class TaskListCreateApiView(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
 
-
-
 @api_view(["GET", "POST"])
 @permission_classes([IsAuthenticated])
 def task_api_list(request):
