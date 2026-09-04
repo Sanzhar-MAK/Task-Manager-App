@@ -9,11 +9,15 @@ from .serializers import TaskSerializer
 
 class TaskListCreateApiView(generics.ListCreateAPIView):
     serializer_class = TaskSerializer
+
     def get_queryset(self):
         return Task.objects.filter(author=self.request.user)
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
+
+class TaskDetailApiView(generics.RetrieveUpdateDestroyAPIView):
+    pass
 
 @api_view(["GET", "POST"])
 @permission_classes([IsAuthenticated])
