@@ -8,7 +8,13 @@ from .models import Task
 from .serializers import TaskSerializer
 
 class TaskViewSet(viewsets.ModelViewSet):
-    pass
+    serializer_class = TaskSerializer
+
+    def get_queryset(self):
+        return Task.objects.filter(author=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 class TaskListCreateApiView(generics.ListCreateAPIView):
     serializer_class = TaskSerializer
