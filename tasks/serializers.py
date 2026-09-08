@@ -6,3 +6,8 @@ class TaskSerializer(serializers.ModelSerializer):
         model = Task
         fields = "__all__"
         read_only_fields = ["author"]
+
+    def validate_title(self, value):
+        if len(value) < 5:
+            raise serializers.ValidationError("Title fewer than 5 characters")
+        return value
