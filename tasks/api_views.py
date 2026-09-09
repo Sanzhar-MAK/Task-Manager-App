@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework import status, generics, viewsets
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.filters import SearchFilter
+from rest_framework.filters import SearchFilter, OrderingFilter
 
 from .models import Task
 from .serializers import TaskSerializer
@@ -16,8 +16,9 @@ class TaskViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
 
-    filter_backends = [SearchFilter]
-    search_fields = ["title"]
+    filter_backends = [SearchFilter, OrderingFilter]
+    search_fields = ["title", "description"]
+    ordering_fields = ["title", "completed", "priority"]
 
 class TaskListCreateApiView(generics.ListCreateAPIView):
     serializer_class = TaskSerializer
