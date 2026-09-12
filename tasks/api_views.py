@@ -4,12 +4,17 @@ from rest_framework.response import Response
 from rest_framework import status, generics, viewsets
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.filters import SearchFilter, OrderingFilter
+from rest_framework.pagination import LimitOffsetPagination
 
 from .models import Task
 from .serializers import TaskSerializer
 
+class TaskPagination(LimitOffsetPagination):
+    max_limit = 3
+
 class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
+    pagination_class = TaskPagination
     def get_queryset(self):
         return Task.objects.filter(author=self.request.user)
 
@@ -19,6 +24,7 @@ class TaskViewSet(viewsets.ModelViewSet):
     filter_backends = [SearchFilter, OrderingFilter]
     search_fields = ["title", "description"]
     ordering_fields = ["title", "completed", "priority"]
+    
 
 class TaskListCreateApiView(generics.ListCreateAPIView):
     serializer_class = TaskSerializer
