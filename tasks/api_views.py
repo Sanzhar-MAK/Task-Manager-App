@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404
+
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework import status, generics, viewsets
@@ -8,6 +9,7 @@ from rest_framework.pagination import LimitOffsetPagination
 
 from .models import Task
 from .serializers import TaskSerializer
+from .permissions import IsOwner
 
 class TaskPagination(LimitOffsetPagination):
     max_limit = 3
@@ -15,6 +17,7 @@ class TaskPagination(LimitOffsetPagination):
 class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
     pagination_class = TaskPagination
+
     def get_queryset(self):
         return Task.objects.filter(author=self.request.user)
 
@@ -24,6 +27,7 @@ class TaskViewSet(viewsets.ModelViewSet):
     filter_backends = [SearchFilter, OrderingFilter]
     search_fields = ["title", "description"]
     ordering_fields = ["title", "completed", "priority"]
+    permission_classes = [IsOwner, IsAuthenticated]
     
 
 class TaskListCreateApiView(generics.ListCreateAPIView):
