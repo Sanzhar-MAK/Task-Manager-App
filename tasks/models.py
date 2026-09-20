@@ -21,6 +21,7 @@ class Task(models.Model):
         choices=PRIORITY_CHOICES,
         default="medium"
     )
+    due_date = models.DateField(null=True, blank=True)
 
     def publish(self):
         self.save()
