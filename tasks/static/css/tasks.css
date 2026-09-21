@@ -192,6 +192,11 @@ nav{
 
 .task-time{
     display: block;
+    margin-bottom: 10px;
+}
+
+.task-time:nth-last-child{
+    margin-bottom: 0;
 }
 
 .published-time{

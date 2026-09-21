@@ -7,8 +7,9 @@
         <h2 class="task-title"><a href="{% url 'task_detail' pk=task.pk %}" class="task-title-link">{{task.title}}</a>
         </h2>
         <p class="task-text">{{task.description|linebreaksbr}}</p>
-        <time class="task-time published-time">published: {{task.created_at}}</time>
-        <time class="task-time updated-time">updated: {{task.updated_at}}</time>
+        <time class="task-time published-time">Published date: {{task.created_at}}</time>
+        <time class="task-time updated-time">Updated date: {{task.updated_at}}</time>
+        <time class="task-time due-time">Due date: {{task.due_date}}</time>
         {% if task.completed %}
         <span class="task-condition complete">Task is completed. Good Job!</span>
         {% else %}
