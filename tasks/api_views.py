@@ -24,7 +24,7 @@ class TaskViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
-
+    # Filter started in there
     filter_backends = [SearchFilter, OrderingFilter, DjangoFilterBackend]
     filterset_fields  = ["completed", "priority", "due_date"]
     search_fields = ["title", "description"]
