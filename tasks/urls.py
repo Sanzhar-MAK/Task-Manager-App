@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
 
 urlpatterns = [
     path('', views.user_login, name='user_login'),
@@ -11,4 +12,7 @@ urlpatterns = [
     path('task/new/', views.task_new, name='task_new'),
     path('task/<int:pk>/edit/', views.task_edit, name='task_edit'),
     path('task/<int:pk>/remove/', views.task_remove, name='task_remove'),
+    path("schema/", SpectacularAPIView.as_view(), name="schema"),
+    path("swagger/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui"),
+    path("redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
 ]
