@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'django_filters',
-    'drf-spectacular'
+    'drf_spectacular'
 ]
 
 REST_FRAMEWORK = {
