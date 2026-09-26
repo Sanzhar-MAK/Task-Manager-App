@@ -26,9 +26,9 @@ class TaskViewSet(viewsets.ModelViewSet):
         serializer.save(author=self.request.user)
     # Filter started in there
     filter_backends = [SearchFilter, OrderingFilter, DjangoFilterBackend]
-    filterset_fields  = ["completed", "priority", "due_date"]
+    filterset_fields  = ["completed", "priority"]
     search_fields = ["title", "description"]
-    ordering_fields = ["title", "completed", "priority", "created_at", "updated_at"]
+    ordering_fields = ["title", "completed", "priority", "created_at", "updated_at", "due_date"]
     permission_classes = [IsOwner, IsAuthenticated]
     
 

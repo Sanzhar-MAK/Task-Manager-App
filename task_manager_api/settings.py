@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'tasks',
     'rest_framework',
     'rest_framework.authtoken',
-    'django_filters'
+    'django_filters',
+    'drf-spectacular'
 ]
 
 REST_FRAMEWORK = {
@@ -56,6 +57,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 
         'rest_framework.pagination.LimitOffsetPagination',
     # 'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema'
 }
 
 MIDDLEWARE = [
