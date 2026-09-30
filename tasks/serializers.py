@@ -13,6 +13,6 @@ class TaskSerializer(serializers.ModelSerializer):
         return value
 
     def validate_description(self, value):
-        if len(value.split()) <= 5:
+        if len(value.split()) <= 3:
             raise serializers.ValidationError("Description is not total fully")
         return value
